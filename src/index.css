@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+ @layer components {
+    .animate{
+      display: flex;
+      animation: scroll 170s linear infinite;
+    }
+    .animate-reversed{
+      display: flex;
+      animation: scroll 120s linear infinite;
+      animation-direction: reverse;
+    }
+  
+    @keyframes scroll {
+      0%{
+  
+        transform: translateX(0);
+      }
+      100%{
+  
+        transform: translate(-100%);
+      }
+    }
+  
+  } 
