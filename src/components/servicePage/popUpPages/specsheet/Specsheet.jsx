@@ -60,7 +60,8 @@ export default function Specsheet() {
     const fetchSpecSheet = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:8080/api/specsheet",
+          `${import.meta.env.VITE_BACKEND_URL}/specsheet"`
+          ,
           formData
         );
         const rawContent = response.data.content;
