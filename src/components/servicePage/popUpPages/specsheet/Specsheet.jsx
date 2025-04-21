@@ -1,5 +1,5 @@
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Specsheet() {
@@ -22,23 +22,23 @@ export default function Specsheet() {
 
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const options = [
-    {
-      id: 1,
-      text: "10% (Upfront Pay) : 40% (Pay Mid-way) : 50% (Pay by Delivery)",
-      delivery: "5 Days Delivery",
-    },
-    {
-      id: 2,
-      text: "50% (Upfront Pay) : 50% (Pay by Delivery)",
-      delivery: "3 Days Delivery",
-    },
-    {
-      id: 3,
-      text: "100% (Pay by Delivery)",
-      delivery: "1 Days Delivery",
-    },
-  ];
+  // const options = [
+  //   {
+  //     id: 1,
+  //     text: "10% (Upfront Pay) : 40% (Pay Mid-way) : 50% (Pay by Delivery)",
+  //     delivery: "5 Days Delivery",
+  //   },
+  //   {
+  //     id: 2,
+  //     text: "50% (Upfront Pay) : 50% (Pay by Delivery)",
+  //     delivery: "3 Days Delivery",
+  //   },
+  //   {
+  //     id: 3,
+  //     text: "100% (Pay by Delivery)",
+  //     delivery: "1 Days Delivery",
+  //   },
+  // ];
 
   // const handelOrder = async () => {
   //   alert("Form Submitted!")
@@ -359,17 +359,24 @@ export default function Specsheet() {
 
                   <div className="mt-4 text-sm">
                     <h3 className="font-medium mb-2">Tags</h3>
-                      <div className="font-light text">
-                        <p>Web Development</p>
-                      </div>
+                    <div className="font-light text flex flex-wrap justify-start gap-5">
+                      {specSheetData?.tags.map((item, i) => (
+                        <p key={i} className="bg-black w-fit rounded-full p-2 ">{item}</p>
+                      ))}
+                      {/* <p>Web Development</p> */}
+                    </div>
                   </div>
-                  
-                  
+
                   <div className="mt-4 text-sm">
                     <h3 className="font-medium mb-2">Order Details</h3>
-                    <p>Order Number: {specSheetData?.orderDetails.orderNumber}</p>
+                    <p>
+                      Order Number: {specSheetData?.orderDetails.orderNumber}
+                    </p>
                     <p>Order Date: {specSheetData?.orderDetails.orderDate}</p>
-                    <p>Invoice Details: {specSheetData?.orderDetails.invoiceDetails}</p>
+                    <p>
+                      Invoice Details:{" "}
+                      {specSheetData?.orderDetails.invoiceDetails}
+                    </p>
                   </div>
                 </div>
               </div>
